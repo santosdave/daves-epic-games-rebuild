@@ -4,6 +4,19 @@
 
 
 
+
+:root {
+  --bg-color1: #121212;
+  --bg-color2: #141414;
+  --bg-color3: #2a2a2a;
+  --bg-color4: #1D1D1D;
+  --bg-color5: #434343;
+  --color1: #FFFFFF;
+  --color2: #838383;
+  --color3: #a0a0a0;
+}
+
+
 body {
   margin: 0;
   padding: 0;
@@ -38,760 +51,97 @@ body::-webkit-scrollbar {
   border-radius: 5px;
 }
 
-:root {
-  --bg-color1: #121212;
-  --bg-color2: #141414;
-  --bg-color3: #2a2a2a;
-  --bg-color4: #1D1D1D;
-  --bg-color5: #434343;
-  --color1: #FFFFFF;
-  --color2: #838383;
-  --color3: #a0a0a0;
-}
 
-ul {
-  list-style: none;
-}
-
-@media only screen and (max-width: 968px) {
-
-  html {
-    overflow-y: hidden;
-  }
-
-}
-
-@layer components {
-  .main-container {
-    @apply mx-auto max-w-8xl px-4 md: px-6 lg:px-8 2xl:px-14;
-  }
-
-
-
-  /* NewsFeed */
-  .newsFeed {
-    @apply flex;
-  }
-
-  .newsFeed ul {
-    @apply w-full m-0 p-0 list-none;
-  }
-
-  .newsFeed ul a {
-    @apply flex px-4 py-6 items-center border-b border-bg-color3 text-white no-underline;
-  }
-
-
-  .description {
-    @apply flex flex-col ml-8
-  }
-
-  .newsFeed time {
-    @apply text-color2 text-xs font-bold tracking-wide mb-2;
-  }
-
-  .newsFeed .readMore {
-    @apply p-0 mt-auto border-b border-bg-color5 w-max transition duration-300;
-  }
-
-  .newsFeed img {
-    @apply w-20 h-auto rounded transition duration-400;
-  }
-
-  .newsFeed li:hover img {
-    @apply filter brightness-130;
-  }
-
-  .newsFeed li:hover .readMore {
-    @apply border-white;
-  }
-
-
-  /* NewsSection */
-  .newsSection {
-    @apply flex justify-between border-b border-bg-color3 pb-20;
-  }
-
-  .newsSection .card {
-    @apply flex flex-col text-white no-underline mr-4;
-  }
-
-  .newsSection .timestamp {
-    @apply my-4 text-color2 text-xs font-bold tracking-wide;
-  }
-
-  .newsSection img {
-    @apply w-full h-full object-cover object-center rounded transition duration-300;
-  }
-
-  .newsSection .card:hover img {
-    @apply filter brightness-150;
-  }
-
-  .newsSection .card:hover .ReadMore {
-    @apply border-white;
-  }
-
-  .newsSection .Description {
-    @apply mb-4;
-  }
-
-  .newsSection .ReadMore {
-    @apply mt-auto border-b border-color2 w-max transition duration-300;
-  }
-
-  @media only screen and (max-width: 1100px) {
-    .newsSection {
-      @apply flex-col;
+@layer components{
+    /* Sidebar */
+    .sidebarWrapper {
+      @apply relative p-0   pb-8 w-52 text-xs;
     }
-
-    .newsSection .card {
-      @apply w-full mx-auto my-4;
+  
+    .sidebar {
+      @apply py-4 px-3  fixed whitespace-nowrap h-screen w-52 border-r bg-gray-800 z-50;
     }
-  }
-
-
-  /* Quick Launch */
-  .quicklaunch {
-    @apply mb-16 sticky top-0 bg-bg-color1 z-10;
-  }
-
-  .quicklaunch ul {
-    @apply list-none p-0 m-0;
-  }
-
-  .games li img {
-    @apply w-48 rounded;
-  }
-
-
-  /* Downloads */
-
-  .downloads {
-    @apply fixed top-0 left-0 bg-color4 text-color3 w-80 h-screen transform -translate-x-20 z-20 block duration-200 p-8;
-    animation: barSlide .2s;
-  }
-
-
-  .downloads .update {
-    @apply pb-12 mb-4 border-b border-bg-color3;
-  }
-
-  .downloads .updates span {
-    @apply ml-4;
-  }
-
-  .downloads .sidecontent>span.shadow {
-    @apply fixed bg-black bg-opacity-50 w-full h-full top-0 left-0 z-10 cursor-pointer;
-  }
-
-  @keyframes barSlide {
-    0% {
-      clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+  
+    @media only screen and (max-width: 968px) {
+      .sidebar-wrapper {
+        @apply hidden;
+      }
     }
-
-    100% {
-      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  
+    .sidebar .icon,
+    svg {
+      @apply w-5 h-5 filter invert-[70%];
     }
-  }
-
-  @media only screen and (max-width: 968px) {
-    .downloads {
-      @apply hidden;
+  
+    .iconStore {
+      @apply bg-center bg-no-repeat bg-cover;
+      background-image: url(https://www.svgrepo.com/show/105540/label.svg);
     }
-  }
-
-  /* Friendlist Users */
-
-  .userlistwrapper {
-    @apply absolute float-left w-full pr-12;
-  }
-
-  .userlist {
-    @apply relative overflow-y-scroll;
-  }
-
-  .userlist .you {
-    @apply bg-color3 rounded text-xs font-normal py-1 px-2;
-  }
-
-  .userlist p {
-    @apply text-color3 font-bold;
-  }
-
-  .status {
-    @apply font-normal block text-color3;
-  }
-
-  .userlist ul {
-    @apply m-0 p-0 list-none font-bold;
-  }
-
-  .userlist li {
-    @apply m-8 mx-auto mt-8 ml-14 cursor-pointer;
-  }
-
-  .icon {
-    @apply text-white w-9 h-9 rounded-full flex items-center justify-center absolute left-0
-  }
-
-
-  .online::after,
-  .offline::after {
-    @apply absolute w-3 h-3 rounded-full border-bg-color2 border-2;
-    right: 0;
-    bottom: 0;
-  }
-
-  .icon.online::after {
-    @apply bg-lime-500;
-  }
-
-  .icon.offline::after {
-    @apply bg-gray-500;
-  }
-
-  /* Show Current */
-  .showCurrent {
-    @apply absolute top-30 left-0 -translate-x-full bg-color4 border-color3 border-2 rounded-5 text-center h-180 w-200 flex flex-col;
-  }
-
-  .showCurrent .icon {
-    @apply text-white w-9 h-9 rounded-full flex items-center justify-center absolute left-0;
-  }
-
-  .showCurrent .icons {
-    @apply flex justify-end gap-4 flex-row font-bold text-[1.2rem] mr-4 items-center mt-2;
-  }
-
-  .showCurrent .icons span {
-    @apply cursor-pointer flex items-center justify-center h-6 w-6;
-  }
-
-  .showCurrent .icons span:hover {
-    @apply bg-color5 bg-opacity-10 rounded;
-  }
-
-  .showCurrent .iconClose {
-    @apply font-normal text-[1.4rem];
-  }
-
-  .showCurrent .userinfo {
-    @apply mt-[40%];
-  }
-
-  .showCurrent .userinfo p:first-child {
-    @apply font-bold;
-  }
-
-  .showCurrent p {
-    @apply m-0 select-text;
-  }
-
-  /* Friendlist */
-  .friendlist {
-    @apply fixed bg-color4 border-color2 border-2 rounded-lg w-[350] z-50 right-2;
-  }
-
-  .wrap {
-    @apply relative overflow-hidden h-full w-full grid grid-rows-[8fr-1fr];
-  }
-
-  .upper {
-    @apply relative p-1.5;
-  }
-
-  .friendlist input[type="radio"] {
-    @apply fixed opacity-0 w-0;
-  }
-
-  .clear {
-    @apply absolute right-3 m-0 p-0 text-color3 font-bold text-[0.8] cursor-pointer bg-transparent outline-none border-none self-center;
-  }
-
-  .toggleMenu {
-    @apply bg-gray-900 rounded-[50] px-2 py-[0.8] my-1.5 mx-auto whitespace-nowrap;
-  }
-
-  .friendlist label {
-    @apply p-2.5 cursor-pointer text-color2 transition duration-200;
-  }
-
-  .friendlist label:hover {
-    @apply text-gray-700;
-  }
-
-  .friendlist input[type="radio"]:checked+label {
-    @apply bg-gray-600 rounded-[15] text-white;
-  }
-
-  .search {
-    @apply flex m-0 mb-1;
-  }
-
-  .SearchInput {
-    @apply border-bg-color5 border font-bold text-color2 rounded text-[14] p-[0.8] w-full bg-transparent outline-none;
-  }
-
-  .SearchInput:focus,
-  .SearchInput:focus+.searchBtn {
-    @apply border-white transition duration-300;
-  }
-
-  .SearchInput::placeholder {
-    @apply text-color2;
-  }
-
-  .searchBtn {
-    @apply absolute right-3 self-center h-6 w-6 bg-no-repeat bg-center;
-  }
-
-  .icons {
-    @apply relative text-right mt-[1em] h-[1em];
-  }
-
-  .icon {
-    @apply cursor-pointer ml-[1em] inline-block filter-invert-100 h-15 w-15 bg-no-repeat bg-center;
-  }
-
-  .iconBell {
-    animation: bellRing 1s;
-  }
-
-  @keyframes bellRing {
-    0% {
-      transform: rotate(25deg);
+  
+  
+    .sidebar ul {
+      @apply list-none p-0;
     }
-
-    25% {
-      transform: rotate(-25deg)
+  
+    .brand {
+      @apply flex items-center mt-1 mb-12;
     }
-
-    50% {
-      transform: rotate(25deg)
+  
+    .brand a {
+      @apply text-gray-600  ml-4;
+      text-decoration: none;
     }
-
-    75% {
-      transform: rotate(-25deg);
+  
+    .sidebar li {
+      @apply mb-8 relative block;
     }
-
-    100% {
-      transform: rotate(0deg);
+  
+    .sidebar li:hover a {
+      @apply text-white;
     }
-  }
-
-  .connect {
-    @apply relative h-full bg-color4 mx-2 text-left border-color2 border-t font-[12] w-full left-0 bottom-2;
-    padding: .5em 3em 0;
-  }
-
-  .connect p {
-    @apply w-[90];
-  }
-
-  .connect a {
-    @apply text-white;
-  }
-
-  @media only screen and (max-width: 968px) {
-    .friendlist {
-      @apply hidden;
+  
+    .sidebar li:hover :is(span, svg, img) {
+      @apply filter invert-[100%];
     }
-  }
-
-  /* Incompatible */
-  .error {
-    @apply fixed h-screen w-full flex text-base text-center flex-col justify-center items-center z-50 bg-color2;
-  }
-
-  @media only screen and (min-width: 968px) {
-    .error {
-      @apply hidden;
+  
+    .sidebar .current {
+      @apply text-white;
     }
-  }
-
-  /* Sidebar */
-  .sidebarWrapper {
-    @apply relative p-0 pl-6 pb-8 w-52 text-xs;
-  }
-
-  .sidebar {
-    @apply pt-8 fixed whitespace-nowrap h-screen w-52 border-r bg-color4 z-50;
-  }
-
-  @media only screen and (max-width: 968px) {
-    .sidebar-wrapper {
-      @apply hidden;
+  
+    .sidebar .current .icon {
+      @apply filter invert-[100%];
     }
-  }
-
-  .sidebar .icon,
-  svg {
-    @apply w-5 h-5 filter invert-[70%];
-  }
-
-  .iconStore {
-    @apply bg-center bg-no-repeat bg-cover;
-    background-image: url(https://www.svgrepo.com/show/105540/label.svg);
-  }
-
-
-  .sidebar ul {
-    @apply list-none p-0;
-  }
-
-  .brand {
-    @apply flex items-center mt-4 mb-8;
-  }
-
-  .brand a {
-    @apply text-color1 ml-4;
-    text-decoration: none;
-  }
-
-  .sidebar li {
-    @apply mb-12 relative block;
-  }
-
-  .sidebar li:hover a {
-    @apply text-white;
-  }
-
-  .sidebar li:hover :is(span, svg, img) {
-    @apply filter invert-[100%];
-  }
-
-  .sidebar .current {
-    @apply text-white;
-  }
-
-  .sidebar .current .icon {
-    @apply filter invert-[100%];
-  }
-
-  .sidebar li a {
-    @apply flex items-center text-color2 transition duration-200;
-  }
-
-  .sidebar li :is(img, svg, span) {
-    @apply mr-10 ml-2;
-  }
-
-  .sidebar .profile::after {
-    @apply w-2 h-2 bg-yellow-500 rounded-full absolute top-0 left-6;
-    content: '';
-  }
-
-  .sidebar nav {
-    @apply flex flex-col justify-between h-[88%];
-  }
-
-  /* Side Content */
-  .sidecontent {
-    @apply relative p-8 min-h-screen;
-  }
-
-  .shadow {
-    @apply fixed bg-black bg-opacity-50 w-full h-full top-0 left-0 z-10 cursor-pointer;
-    content: '';
-  }
-
-  @media only screen and (max-width: 968px) {
+  
+    .sidebar li a {
+      @apply flex items-center text-gray-600  transition duration-200;
+    }
+  
+    .sidebar li :is(img, svg, span) {
+      @apply mr-10 ml-2;
+    }
+  
+    .sidebar .profile::after {
+      @apply w-2 h-2 bg-yellow-500 rounded-full absolute top-0 left-6;
+      content: '';
+    }
+  
+    .sidebar nav {
+      @apply flex flex-col justify-between h-[88%];
+    }
+  
+    /* Side Content */
     .sidecontent {
-      @apply mx-auto;
+      @apply relative p-8 min-h-screen;
     }
-  }
-
-  /* Games */
-  .library .shop {
-    @apply w-56 h-80 bg-color4 rounded-md absolute flex items-center bg-no-repeat justify-center flex-col text-color3;
-    text-decoration: none;
-    /* You can use the bg-image class to apply background images */
-    background-image: url(https://www.svgrepo.com/show/105540/label.svg);
-    background-size: 50%;
-    background-position: center 20px;
-  }
-
-  .library .shop .iconStore {
-    @apply bg-gray-300 rounded-full bg-no-repeat bg-center bg-contain w-20 h-20 filter invert-[100%] mb-4;
-  }
-
-  /* Hover state with brightness and cursor changes */
-  .library .shop:hover {
-    @apply filter brightness-[120] cursor-pointer;
-  }
-
-
-  /* Library Navbar */
-
-  .libraryNavbar {
-    @apply w-full flex justify-between text-color2 mb-4;
-  }
-
-
-  .libraryNavbar ul {
-    @apply list-none m-0 p-0;
-  }
-
-  .libraryNavbar li {
-    @apply inline-block mx-4;
-  }
-
-  /* For primaryNav select, you can use the form-select class in Tailwind CSS */
-  .libraryNavbar .primaryNav select {
-    @apply bg-transparent outline-none border-none text-white;
-  }
-
-  .libraryNavbar label {
-    @apply pr-2;
-  }
-
-  /* For input[type="search"], you can use the form-input class in Tailwind CSS */
-  .libraryNavbar input[type="search"] {
-    @apply text-white bg-color4 border-none rounded-md w-52 px-3 py-2;
-  }
-
-  .libraryNavbar .icon {
-    @apply pr-12 bg-no-repeat bg-center filter invert-[70%];
-  }
-
-  /* Hover state with color and cursor changes */
-  .libraryNavbar .icon:hover {
-    @apply filter invert-[100%] text-black cursor-pointer;
-  }
-
-  /* Free Games */
-
-  .freegames {
-    @apply bg-color3 p-8 rounded-lg;
-  }
-
-  .flexheader {
-    @apply flex items-center justify-between mb-6;
-  }
-
-  .freegames svg {
-    @apply filter invert-0 scale-170 w-8 mr-2;
-  }
-
-  /* For btnOutline, you can use the btn class in Tailwind CSS */
-  .btnOutline {
-    @apply no-underline font-bold border-color3 border-2 px-3 py-2 text-sm rounded-md transition-colors;
-  }
-
-  .btnOutline:hover {
-    background: rgb(80, 80, 80);
-  }
-
-  .game {
-    @apply no-underline text-color3 leading-5;
-  }
-
-  .freegames .gameimg {
-    @apply relative;
-  }
-
-  /* For freenow game, you can add a separate class */
-  .freenow .gameimg::before {
-    @apply absolute w-full bottom-0 left-0 bg-blue-500 content text-white text-xs font-bold rounded-b-md py-1;
-  }
-
-  .freegames h1,
-  .freegames h4 {
-    @apply m-0 p-0 text-white font-normal;
-  }
-
-  .flex {
-    @apply flex flex-row w-full gap-6;
-  }
-
-  .flextext {
-    @apply mt-4;
-  }
-
-  .freegames img {
-    @apply rounded-md w-full h-auto;
-  }
-
-  /* Store Navbar */
-  .storeNavbar {
-    @apply w-full flex justify-between text-color2 mb-4;
-  }
-
-  .storeNavbar ul {
-    @apply list-none m-0 p-0;
-  }
-
-  .storeNavbar li {
-    @apply inline-block mx-4;
-  }
-
-  .primaryNav li:nth-child(1) {
-    @apply text-white;
-  }
-
-  .storeNavbar input[type="search"] {
-    @apply text-white bg-color4 border-none rounded-md w-48 px-3 py-2;
-  }
-
-  .icon {
-    @apply pr-12 bg-no-repeat bg-center filter invert-[70%];
-  }
-
-  .icon:hover {
-    @apply filter invert-[100%] text-black cursor-pointer;
-  }
-
-
-  /* Store Sales */
-  .sales {
-    @apply pb-20;
-  }
-
-  .saleslist {
-    @apply w-full flex flex-row list-none p-0 m-0 justify-between;
-  }
-
-  .card {
-    @apply w-1/5;
-  }
-
-  .cardText {
-    @apply break-words font-bold;
-  }
-
-  .author {
-    @apply text-color3;
-  }
-
-  .pricetag {
-    @apply bg-blue-500 rounded-md px-2 py-1 mr-4 text-xs;
-  }
-
-  .oldprice {
-    @apply text-color3 line-through;
-  }
-
-  .saleslist a {
-    @apply no-underline text-white;
-  }
-
-  .saleslist a:hover img {
-    @apply filter brightness-110;
-  }
-
-  .saleslist img {
-    @apply h-96 w-full object-cover rounded-md;
-  }
-
-  /* Store slider */
-  .sliderWrapper {
-    @apply flex flex-row overflow-hidden content-start;
-    height: fit-content;
-    margin-bottom: 3em;
-  }
-
-  .featured {
-    @apply relative flex items-end justify-start;
-    width: 100%;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    border-radius: 4px 0 0 4px;
-    transition: 1s cubic-bezier(0.86, 0, 0.07, 1);
-  }
-
-  .featured .buttons {
-    @apply flex flex-row text-center gap-1;
-  }
-
-  .featured .btn {
-    @apply bg-blue-500 text-white;
-    text-decoration: none;
-    width: fit-content;
-  }
-
-  .featured .btn:hover {
-    @apply filter brightness-110;
-  }
-
-  .featured .btnDownload {
-    @apply px-4 py-2 rounded-l-md;
-  }
-
-  .featured .btnWishlist {
-    @apply py-3 rounded-r-md w-10 h-auto;
-  }
-
-  .featured .purchase {
-    @apply px-2 py-1 border-r-2 border-blue-300 mr-2;
-  }
-
-  .featured .itemText {
-    @apply box-border overflow-hidden px-12 pb-12 w-2/5 font-bold relative;
-    z-index: 2;
-  }
-
-  .featured .itemText::before {
-    @apply absolute bg-black bg-opacity-30 w-full h-full;
-    content: '';
-    top: 0;
-    left: 0;
-    z-index: -1;
-  }
-
-  .featured .btn {
-    @apply mt-8;
-  }
-
-  .gamelist {
-    @apply flex flex-col list-none p-0 m-0 w-20 bg-bg-color4 rounded-r-md;
-  }
-
-  .gamelist .game:hover {
-    @apply bg-white bg-opacity-10;
-    cursor: pointer;
-  }
-
-  .gamelist .game {
-    @apply flex gap-1 p-4 overflow-hidden;
-    line-height: 20px;
-    position: relative;
-  }
-
-  .gamelist .current,
-  .gamelist .current:hover {
-    @apply bg-blue-500 bg-opacity-30;
-  }
-
-  .gamelist .current::after {
-    @apply absolute w-full bg-white;
-    content: '';
-    height: 2px;
-    left: 0;
-    bottom: 0;
-    animation: sliderAnimate 9s;
-  }
-
-  .gamelist .current::before {
-    @apply absolute w-full bg-opacity-40;
-    content: '';
-    height: 2px;
-    left: 0;
-    bottom: 0;
-  }
-
-  @keyframes sliderAnimate {
-    0% {
-      width: 0;
+  
+    .shadow {
+      @apply fixed bg-black bg-opacity-50 w-full h-full top-0 left-0 z-10 cursor-pointer;
+      content: '';
     }
-
-    100% {
-      width: 100%;
+  
+    @media only screen and (max-width: 968px) {
+      .sidecontent {
+        @apply mx-auto;
+      }
     }
-  }
-
-  .gamelist img {
-    @apply w-10 h-16 rounded-md object-cover ml-2;
-  }
 }

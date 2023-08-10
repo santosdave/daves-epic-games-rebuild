@@ -1,23 +1,22 @@
 import React from 'react'
 import { useGlobalContext } from '@/context/Context'
+import Sidebar from './Sidebar'
 
-import Header from './Header'
-import Footer from './Footer'
+type Props = {
 
+}
 
-type Props = {}
 
 interface MainLayoutProps {
     children: React.ReactNode
 }
 export default function MainLayout({ children }: MainLayoutProps) {
     return (
-        <>
-            <Header />
+        <div className='grid grid-cols-2'>
+            <Sidebar />
             <main>
                 {children}
             </main>
-            <Footer />
-        </>
+        </div>
     )
 }

@@ -9,17 +9,21 @@ export const FRIENDS_DATA = [
     { username: 'Purces', status: 'offline', color: 'darkviolet', id: '8' }
 ]
 
+
+
 export const DEFAULT_USER = {
     username: 'santosdave',
     status: 'online',
     color: 'darkviolet'
 }
 
+
 export { default as HOME_LOGO } from './../../public/assets/Sidebar/home.png';
 export { default as LIBRARY_LOGO } from './../../public/assets/Sidebar/4-rounded-squares.png';
 export { default as UNREAL_LOGO } from './../../public/assets/Sidebar/unreal.png';
 export { default as SEARCH_LOGO } from './../../public/assets/Sidebar/search.png';
 export { default as DOWNLOAD_LOGO } from './../../public/assets/Sidebar/download.png';
-export { default as LOGO_LOGO } from './../../public/assets/Sidebar/logo.png'
-
+export { default as LOGO_LOGO } from './../../public/assets/Sidebar/logo.png';
+export { default as GEAR_LOGO } from "./../../public/assets/Sidebar/gear.svg";
+export { default as PROFILE_LOGO } from "./../../public/assets/Sidebar/profile.svg";
 export { default as FORTNITE_LOGO } from './../../public/assets/QuickLaunch/fortnite.jpg';
