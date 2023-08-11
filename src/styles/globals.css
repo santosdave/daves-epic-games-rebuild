@@ -144,4 +144,140 @@ body::-webkit-scrollbar {
         @apply mx-auto;
       }
     }
+
+    .newsList{
+      @apply flex flex-col justify-between py-3 border-b-2;
+    }
+
+    .newsList .card{
+      @apply flex flex-col text-white mr-4 py-4;
+      text-decoration: none;
+      line-height: 20px;
+    }
+    .newsList .card .timeline{
+      @apply mt-4 mb-0 text-gray-600 font-bold text-xs tracking-wide;
+    }
+
+    .newsList img{
+      @apply h-full w-full object-cover object-center rounded transition duration-300; 
+    }
+
+    .newsList .decription{
+      @apply mb-4;
+    }
+
+    .newsList .card:hover img {
+      @apply filter brightness-150;
+    }
+
+    .newsList .readMore {
+      @apply mt-2 border-b border-gray-400 min-w-min transition duration-300;
+    }
+
+
+    @media only screen and (max-width: 1100px) {
+      .newsList {
+        @apply flex-col;
+      }
+    
+      .newsList .card {
+        @apply w-full mx-auto my-4;
+      }
+    }
+
+
+      /* NewsFeed */
+  .newsFeed {
+    @apply flex;
+  }
+
+  .newsFeed ul {
+    @apply w-full m-0 p-0 list-none;
+  }
+
+  .newsFeed ul a {
+    @apply flex px-4 py-6 items-center border-b border-gray-300 text-white no-underline;
+  }
+
+
+  .newsFeed .description {
+    @apply flex flex-col ml-8
+  }
+
+  .newsFeed time {
+    @apply text-gray-500 text-xs font-bold tracking-wide mb-2;
+  }
+
+  .newsFeed .readMore {
+    @apply p-0 mt-auto border-b border-gray-400 w-max transition duration-300;
+  }
+
+  .newsFeed img {
+    @apply w-20 h-auto rounded transition duration-400;
+  }
+
+  .newsFeed li:hover img {
+    @apply filter brightness-130;
+  }
+
+  .newsFeed li:hover .readMore {
+    @apply border-white;
+  }
+
+
+  .friendList {
+    @apply fixed bg-gray-800 border-gray-400 border-2 rounded-lg w-[25vw] z-50 right-2 top-4;
+  }
+
+  .friendList .wrap{
+    @apply relative overflow-hidden h-full w-full grid grid-rows-[8fr-1fr];
+  }
+
+  .upper {
+    @apply relative p-1.5;
+  }
+
+  .friendlist input[type="radio"] {
+    @apply fixed opacity-0 w-0;
+  }
+
+  .friendlist label {
+    @apply p-2.5 cursor-pointer text-color2 transition duration-200;
+  }
+
+  .friendlist label:hover {
+    @apply text-gray-700;
+  }
+
+  .friendlist input[type="radio"]:checked+label {
+    @apply bg-gray-600 rounded-[15] text-white;
+  }
+
+
+  .connect {
+    @apply relative h-full bg-gray-800 mx-2 text-left border-gray-400 border-t font-[12] w-full left-0 bottom-2;
+    padding: .5em 3em 0;
+  }
+
+  .connect p {
+    @apply w-[90];
+  }
+
+  .connect a {
+    @apply text-white;
+  }
+
+  .icons {
+    @apply relative text-right mt-[1em] h-[1em];
+  }
+
+  .icon {
+    @apply cursor-pointer ml-[1em] inline-block filter invert-[100%] h-16 w-16 bg-no-repeat bg-center;
+  }
+
+  .iconBell {
+    animation: bellRing 1s;
+  }
+
+  
 }

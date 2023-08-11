@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import { motion } from "framer-motion"
 import MainLayout from '@/components/layouts/MainLayout'
+import Main from '@/components/main/Main'
 
 
 
@@ -22,7 +23,7 @@ export default function Home({ }: Props) {
       </Head>
       <main className=''>
         <MainLayout>
-
+          <Main/>
         </MainLayout>
       </main>
     </motion.div>
