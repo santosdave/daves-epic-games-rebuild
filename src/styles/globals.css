@@ -224,7 +224,10 @@ body::-webkit-scrollbar {
     @apply border-white;
   }
 
-
+  .toggleMenu {
+    @apply bg-gray-900 rounded-[50] px-2 py-[0.8] my-1.5 mx-auto whitespace-nowrap;
+  }
+  
   .friendList {
     @apply fixed bg-gray-800 border-gray-400 border-2 rounded-lg w-[25vw] z-50 right-2 top-4;
   }
@@ -242,7 +245,7 @@ body::-webkit-scrollbar {
   }
 
   .friendlist label {
-    @apply p-2.5 cursor-pointer text-color2 transition duration-200;
+    @apply p-2.5 cursor-pointer text-gray-400 transition duration-200;
   }
 
   .friendlist label:hover {
@@ -267,6 +270,27 @@ body::-webkit-scrollbar {
     @apply text-white;
   }
 
+  .search {
+    @apply flex m-0 mb-1;
+  }
+
+  .SearchInput {
+    @apply border-gray-400 border font-bold text-gray-500 rounded text-[14] p-[0.8] w-full bg-transparent outline-none;
+  }
+
+  .SearchInput:focus,
+  .SearchInput:focus+.searchBtn {
+    @apply border-white transition duration-300;
+  }
+
+  .SearchInput::placeholder {
+    @apply text-gray-400;
+  }
+
+  .searchBtn {
+    @apply absolute right-3 self-center h-6 w-6 bg-no-repeat bg-center;
+  }
+
   .icons {
     @apply relative text-right mt-[1em] h-[1em];
   }
@@ -277,6 +301,36 @@ body::-webkit-scrollbar {
 
   .iconBell {
     animation: bellRing 1s;
+  }
+
+  /* Friendlist Users */
+
+  .userlistwrapper {
+    @apply relative float-left w-full pr-12;
+  }
+
+  .userlist {
+    @apply relative overflow-y-scroll;
+  }
+
+  .userlist .you {
+    @apply bg-gray-400 rounded text-xs font-normal py-1 px-2;
+  }
+
+  .userlist p {
+    @apply text-gray-400 font-bold;
+  }
+
+  .status {
+    @apply font-normal block text-gray-400;
+  }
+
+  .userlist ul {
+    @apply m-0 p-0 list-none font-bold;
+  }
+
+  .userlist li {
+    @apply m-8 mx-auto mt-8 ml-14 cursor-pointer;
   }
 
   
