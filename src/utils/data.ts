@@ -28,3 +28,4 @@ export { default as GEAR_LOGO } from "./../../public/assets/Sidebar/gear.svg";
 export { default as PROFILE_LOGO } from "./../../public/assets/Sidebar/profile.svg";
 export { default as FORTNITE_LOGO } from './../../public/assets/QuickLaunch/fortnite.jpg';
 export { default as BELL_ICON}  from "./../../public/assets/News/bell.png";
+export {default as FRIENDS_ICON} from "./../../public/assets/News/friends.png";

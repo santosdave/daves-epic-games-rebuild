@@ -2,6 +2,7 @@ import Head from 'next/head'
 import React from 'react'
 import { motion } from "framer-motion"
 import MainLayout from '@/components/layouts/MainLayout'
+import Store from '@/components/store/Store'
 type Props = {}
 
 export default function store({ }: Props) {
@@ -20,7 +21,7 @@ export default function store({ }: Props) {
             </Head>
             <main className=''>
                 <MainLayout>
-
+                    <Store />
                 </MainLayout>
             </main>
         </motion.div>

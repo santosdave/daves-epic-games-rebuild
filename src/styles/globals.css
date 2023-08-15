@@ -333,5 +333,123 @@ body::-webkit-scrollbar {
     @apply m-8 mx-auto mt-8 ml-14 cursor-pointer;
   }
 
+  /* Store Navbar */
+  .storeNavbar {
+    @apply w-full flex justify-between text-gray-500 mb-4;
+  }
+
+  .storeNavbar ul {
+    @apply list-none m-0 p-0;
+  }
+
+  .storeNavbar li {
+    @apply inline-block mx-4;
+  }
+
+  .primaryNav li:nth-child(1) {
+    @apply text-white;
+  }
+
+  .storeNavbar input[type="search"] {
+    @apply text-white bg-gray-800 border-none rounded-md w-48 px-3 py-2;
+  }
+
+  /* Store slider */
+  .sliderWrapper {
+    @apply flex flex-row overflow-hidden content-start;
+    height: fit-content;
+    margin-bottom: 3em;
+  }
+
+  .featured {
+    @apply relative flex items-end justify-start;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 4px 0 0 4px;
+    transition: 1s cubic-bezier(0.86, 0, 0.07, 1);
+  }
+
+  .featured .buttons {
+    @apply flex flex-row text-center gap-1;
+  }
+
+  .featured .btn {
+    @apply bg-blue-500 text-white;
+    text-decoration: none;
+    width: fit-content;
+  }
+
+  .featured .btn:hover {
+    @apply filter brightness-110;
+  }
+
+  .featured .btnDownload {
+    @apply px-4 py-2 rounded-l-md;
+  }
+
+  .featured .btnWishlist {
+    @apply py-3 rounded-r-md w-10 h-auto;
+  }
+
+  .featured .purchase {
+    @apply px-2 py-1 border-r-2 border-blue-300 mr-2;
+  }
+
+  .featured .itemText {
+    @apply box-border overflow-hidden px-12 pb-12 w-2/5 font-bold relative;
+    z-index: 2;
+  }
+
+  .featured .itemText::before {
+    @apply absolute bg-black bg-opacity-30 w-full h-full;
+    content: '';
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+
+  .featured .btn {
+    @apply mt-8;
+  }
+
+  .gamelist {
+    @apply flex flex-col list-none p-0 m-0 w-20 bg-gray-800 rounded-r-md;
+  }
+
+  .gamelist .game:hover {
+    @apply bg-white bg-opacity-10;
+    cursor: pointer;
+  }
+
+  .gamelist .game {
+    @apply flex gap-1 p-4 overflow-hidden;
+    line-height: 20px;
+    position: relative;
+  }
+
+  .gamelist .current,
+  .gamelist .current:hover {
+    @apply bg-blue-500 bg-opacity-30;
+  }
+
+  .gamelist .current::after {
+    @apply absolute w-full bg-white;
+    content: '';
+    height: 2px;
+    left: 0;
+    bottom: 0;
+    animation: sliderAnimate 9s;
+  }
+
+  .gamelist .current::before {
+    @apply absolute w-full bg-opacity-40;
+    content: '';
+    height: 2px;
+    left: 0;
+    bottom: 0;
+  }
+
   
 }
